@@ -4,14 +4,11 @@ with open("../inputs/day05.txt") as file:
 
 
 def get_id(line: str) -> int:
-    row, col = 0, 0
-    for c in line[:7]:
-        row <<= 1
-        row += 1 if c == 'B' else 0
-    for c in line[7:]:
-        col <<= 1
-        col += 1 if c == 'R' else 0
-    return row * 8 + col
+    x = 0
+    for c in line:
+        x <<= 1
+        x += 1 if c in "RB" else 0
+    return x
 
 ids = [get_id(line) for line in lines]
 _max = max(ids)
