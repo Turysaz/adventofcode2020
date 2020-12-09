@@ -1,0 +1,7 @@
+-Wall
+-ansi
+-std=c89
+-pedantic
+-pedantic-errors
+# Clang on Windows gets confused about -ansi and deprecations
+-Wno-deprecated-declarations
