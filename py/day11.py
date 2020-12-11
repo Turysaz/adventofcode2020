@@ -1,4 +1,3 @@
-from itertools import combinations
 with open("../inputs/day11.txt") as file:
     seat_map = file.read().splitlines(keepends=False)
 
