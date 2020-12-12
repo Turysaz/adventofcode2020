@@ -1,38 +1,29 @@
 with open("../inputs/day12.txt") as file:
     lines = file.read().splitlines(keepends=False)
 
-def part1():
+def solve(useWaypoint):
     pos = 0+0j
-    hed = 1+0j
+    hwp = 10+1j if useWaypoint else 1+0j # heading or way point
+
+    def translate(x):
+        nonlocal pos, hwp
+        if useWaypoint:
+            hwp += x
+        else:
+            pos += x
 
     for l in lines:
         ins = l[0]
         arg = int(l[1:])
-        if ins == "N": pos += arg * +1j
-        elif ins == "S": pos += arg * -1j
-        elif ins == "E": pos += arg * 1
-        elif ins == "W": pos += arg * -1
-        elif ins == "F": pos += hed * arg
-        elif ins == "R": hed *= (-1j) ** int(arg/90)
-        elif ins == "L": hed *= (+1j) ** int(arg/90)
+        if ins == "N": translate(arg * +1j)
+        elif ins == "S": translate(arg * -1j)
+        elif ins == "E": translate(arg * 1)
+        elif ins == "W": translate(arg * -1)
+        elif ins == "F": pos += hwp * arg
+        elif ins == "R": hwp *= (-1j) ** int(arg/90)
+        elif ins == "L": hwp *= (+1j) ** int(arg/90)
 
     return(abs(pos.real) + abs(pos.imag))
 
-def part2():
-    pos = 0+0j
-    wp = 10+1j 
-    for l in lines:
-        ins = l[0]
-        arg = int(l[1:])
-        if ins == "N": wp += arg * +1j
-        elif ins == "S": wp += arg * -1j
-        elif ins == "E": wp += arg * 1
-        elif ins == "W": wp += arg * -1
-        elif ins == "F": pos += wp * arg 
-        elif ins == "R": wp *= (-1j) ** int(arg/90)
-        elif ins == "L": wp *= (+1j) ** int(arg/90)
-
-    return(abs(pos.real) + abs(pos.imag))
-
-print("Part 1: %i" % part1())
-print("Part 2: %i" % part2())
+print("Part 1: %i" % solve(useWaypoint=True))
+print("Part 2: %i" % solve(useWaypoint=False))
