@@ -13,12 +13,8 @@ def part1():
         elif ins == "E": pos += arg * 1
         elif ins == "W": pos += arg * -1
         elif ins == "F": pos += hed * arg
-        elif ins == "R":
-            for i in range(int(arg/90)):
-                hed *= -1j
-        elif ins == "L":
-            for i in range(int(arg/90)):
-                hed *= 1j
+        elif ins == "R": hed *= (-1j) ** int(arg/90)
+        elif ins == "L": hed *= (+1j) ** int(arg/90)
 
     return(abs(pos.real) + abs(pos.imag))
 
@@ -32,13 +28,9 @@ def part2():
         elif ins == "S": wp += arg * -1j
         elif ins == "E": wp += arg * 1
         elif ins == "W": wp += arg * -1
-        elif ins == "F": pos += wp * arg
-        elif ins == "R":
-            for i in range(int(arg/90)):
-                wp *= -1j
-        elif ins == "L":
-            for i in range(int(arg/90)):
-                wp *= 1j
+        elif ins == "F": pos += wp * arg 
+        elif ins == "R": wp *= (-1j) ** int(arg/90)
+        elif ins == "L": wp *= (+1j) ** int(arg/90)
 
     return(abs(pos.real) + abs(pos.imag))
 
