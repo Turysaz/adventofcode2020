@@ -2,15 +2,9 @@ with open("../inputs/day13.txt") as file:
     current_timestamp = int(file.readline())
     bus_lines = [int(line) for line in file.readline().split(",") if line != "x"]
 
-_min = 99999999
-_min_line = None
-for l in bus_lines:
-    n = l - (current_timestamp % l)
-    if n < _min:
-        _min = n
-        _min_line = l
+def get_wait_time(timestamp, line):
+    return line - (current_timestamp % line)
 
-print(_min)
-print(_min_line )
-print(_min_line * _min)
+min_line = min(bus_lines, key=(lambda x: get_wait_time(current_timestamp, x)))
+print("Part1: %i" % (min_line * get_wait_time(current_timestamp, min_line)))
 
