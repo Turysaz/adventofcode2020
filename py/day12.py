@@ -25,5 +25,5 @@ def solve(useWaypoint):
 
     return(abs(pos.real) + abs(pos.imag))
 
-print("Part 1: %i" % solve(useWaypoint=True))
-print("Part 2: %i" % solve(useWaypoint=False))
+print("Part 1: %i" % solve(useWaypoint=False))
+print("Part 2: %i" % solve(useWaypoint=True))

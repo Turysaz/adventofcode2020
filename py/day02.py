@@ -6,9 +6,7 @@ with open("../inputs/day02.txt") as file:
 pattern = "(?P<n1>\d+)-(?P<n2>\d+) (?P<sym>\w): (?P<pw>\w+)"
 
 def part1():
-    print("Part1")
     valid_c = 0
-
     for l in lines:
         m = re.match(pattern, l)
         min, max, sym, pw = m.group("n1", "n2", "sym", "pw")
@@ -18,10 +16,9 @@ def part1():
 
         valid_c += 1
 
-    print("valid password count: {}".format(valid_c))
+    print("Part 1: {}".format(valid_c))
 
 def part2():
-    print("Part 2")
     valid_c = 0
     for l in lines:
         m = re.match(pattern, l)
@@ -31,7 +28,7 @@ def part2():
             valid_c += 1
             continue
 
-    print("valid password count: {}".format(valid_c))
+    print("Part 2: {}".format(valid_c))
 
 
 part1()

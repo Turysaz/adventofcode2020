@@ -6,5 +6,5 @@ def get_wait_time(timestamp, line):
     return line - (current_timestamp % line)
 
 min_line = min(bus_lines, key=(lambda x: get_wait_time(current_timestamp, x)))
-print("Part1: %i" % (min_line * get_wait_time(current_timestamp, min_line)))
+print("Part 1: %i" % (min_line * get_wait_time(current_timestamp, min_line)))
 

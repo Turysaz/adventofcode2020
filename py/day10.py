@@ -18,6 +18,6 @@ for i in range(len(jolts) - 1):
         sequences.append(current_seq)
         current_seq = 0
 
-print("Part 1 %i" % ((len(jolts)-1 - sum(sequences)) * sum(sequences)))
-print("Part 2 %i" % prod(map(f, sequences)))
+print("Part 1: %i" % ((len(jolts)-1 - sum(sequences)) * sum(sequences)))
+print("Part 2: %i" % prod(map(f, sequences)))
 

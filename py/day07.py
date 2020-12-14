@@ -19,8 +19,5 @@ def hold_gold(color: str) -> bool:
 def weight(color: str) -> int:
     return sum([count * weight(name) + count for (name, count) in rules[color]])
 
-print("Part 1")
-print(sum(int(hold_gold(x)) for x in rules))
-
-print("Part 2")
-print(weight("shiny gold"))
+print("Part 1: %i" % sum(int(hold_gold(x)) for x in rules))
+print("Part 2: %i" % weight("shiny gold"))

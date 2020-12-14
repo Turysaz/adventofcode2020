@@ -25,9 +25,9 @@ def find_seq(numbers, weak):
 
 def crackXMAS(numbers, rot=25):
     weak = find_weak(numbers, rot)
-    print("Weak: {}".format(weak))
+    print("Part 1: {}".format(weak))
     seq = find_seq(numbers, weak)
     _min, _max = min(seq), max(seq)
-    print("Seq: {}, Min: {}, Max:{}, Sum:{}".format(seq, _min, _max, _min+_max))
+    print("Part 2: {}".format(_min+_max))
 
 crackXMAS(numbers, 25)

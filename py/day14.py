@@ -29,4 +29,4 @@ for l in program:
     if mmemo != None:
         mem[int(mmemo.group("add"))] = apply_mask(int(mmemo.group("val")), mask)
 
-print(sum(mem.values()))
+print("Part 1: %i" % sum(mem.values()))

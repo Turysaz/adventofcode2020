@@ -56,10 +56,7 @@ def count_valid(checkhandler: dict):
                 in re.finditer(r"(?P<key>\w{3}):(?P<val>[^\s]*)", data)))
         if (checksum & req_mask) == req_mask:
             valid += 1
-    print ("Valid: {}".format(valid))
+    return valid
 
-print("Part 1")
-count_valid(checkhandler_part1)
-
-print("Part 2")
-count_valid(checkhandler_part2)
+print("Part 1: %i" % count_valid(checkhandler_part1))
+print("Part 2: %i" % count_valid(checkhandler_part2))
