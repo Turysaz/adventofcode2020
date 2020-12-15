@@ -1,5 +1,5 @@
-
-start =[6,4,12,1,20,0,16]
+with open("../inputs/day15.txt") as file:
+    start = [int(x) for x in file.readline().split(",")]
 
 def get_nth_number(n: int) -> int:
     last_time_of = {v:start.index(v)+1 for v in start[:-1]}
@@ -19,5 +19,4 @@ def get_nth_number(n: int) -> int:
 
 print("Part 1: %i" % get_nth_number(2020))
 print("Part 2: %i" % get_nth_number(30000000))
-
 
