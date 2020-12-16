@@ -46,47 +46,41 @@ if __name__ == "__main__":
     with open("../inputs/day16.txt") as file:
         lines = file.read().splitlines(keepends=False)
 
-    lines_d = """class: 1-3 or 5-7
-row: 6-11 or 33-44
-seat: 13-40 or 45-50
-
-your ticket:
-7,1,14
-
-nearby tickets:
-7,3,47
-40,4,50
-55,2,20
-38,6,12""".splitlines(keepends=False)
-
-    lines_d = """class: 0-1 or 4-19
-row: 0-5 or 8-19
-seat: 0-13 or 16-19
-
-your ticket:
-11,12,13
-
-nearby tickets:
-3,9,18
-15,1,5
-5,14,9""".splitlines(keepends=False)
-
-
     rules, own_ticket, other_tickets = parse(lines)
 
-    matches = [] # entries represent the matches for one ticket, each.
+    valid_tix = [] # entries represent the matches for one ticket, each.
     error_rate = 0
+    other_tickets.append(own_ticket)
     for ticket in other_tickets:
         field_matches = []
-        error = 0
-        for field in ticket:
-            applying_rules = set(r.name for r in rules if r.okay(field))
+        error, errorcode = False, 0
+        for candidate in ticket:
+            applying_rules = set(r.name for r in rules if r.okay(candidate))
             if len(applying_rules) == 0:
-                error += field
+                error = True
+                errorcode += candidate
             field_matches.append(applying_rules)
-        error_rate += error
-        if error == 0:
-            matches.append(field_matches)
+        error_rate += errorcode
+        if not error:
+            valid_tix.append(field_matches)
 
     print("Part 1: %i" % error_rate)
 
+    candidates=[]
+    for i in range(len(rules)):
+        candidates.append(list(set.intersection(*[t[i] for t in valid_tix])))
+
+    field_indices = {}
+    while (candidate := next(filter(lambda x: len(x) == 1, candidates), False)):
+        field_name = candidate[0]
+        field_indices[candidates.index(candidate)] = field_name
+        for c in candidates:
+            if field_name in c:
+                c.remove(field_name)
+
+    product = 1
+    for i in field_indices:
+        if field_indices[i].startswith("departure"):
+            product *= own_ticket[i]
+
+    print("Part 2: %i" % product)
