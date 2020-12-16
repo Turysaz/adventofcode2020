@@ -21,18 +21,14 @@ class Rule():
         self._r1 = int(m.group("r1"))
         self._l2 = int(m.group("l2"))
         self._r2 = int(m.group("r2"))
-    
+
     def okay(self, number: int) -> bool:
         return (self._l1 <= number and number <= self._r1
                 or self._l2 <= number and number <= self._r2)
 
 def parse(lines: list[str]) -> tuple[list[Rule], list[int], list[list[int]]]:
-    """
-    Returns a tuple of all rules, then the own ticket, then all other tickets.
-    """
-    rules=[]
-    own_ticket = None
-    other_tickets = []
+    "Returns a tuple of all rules, then the own ticket, then all other tickets."
+    rules, own_ticket, other_tickets = [], None, []
     i = 0
     while lines[i] != "":
         rules.append(Rule(lines[i]))
