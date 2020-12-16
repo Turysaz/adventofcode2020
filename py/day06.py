@@ -1,3 +1,14 @@
+
+# Advent of code 2020, day 06
+#
+# Tasks:
+# Part 1: Given a set of groups of characters, find the number of unique
+#         characters in each group and return the sum of all these numbers.
+# Part 2: Similar, but instead of finding the unique characters, find the
+#         number of characters that occur in each life of the group.
+#
+
+
 with open("../inputs/day06.txt") as file:
     lines = file.read().splitlines(keepends=False)
 

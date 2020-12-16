@@ -1,4 +1,12 @@
 
+# Advent of code 2020, day 03
+#
+# Tasks:
+# Part 1: You sled diagonally (x+=3, y+=1) through a forest. Into how many trees
+#         do you crash?
+# Part 2: The same but for different angles. Multiply all solutions.
+#
+
 with open("../inputs/day03.txt") as file:
     lines = [l[:-1] for l in file.readlines()] # trim newlines
 

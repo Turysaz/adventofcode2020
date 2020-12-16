@@ -1,4 +1,12 @@
 
+# Advent of code 2020, day 05
+#
+# Tasks:
+# Part 1: Translate a description "FBFBFBLRLR" (front-back-left-right) into a
+#         numeric id.
+# Part 2: Find the gap between all ids.
+#
+
 with open("../inputs/day05.txt") as file:
     lines = file.read().splitlines(keepends=False)
 

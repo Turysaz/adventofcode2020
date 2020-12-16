@@ -1,4 +1,11 @@
 
+# Advent of code 2020, day 04
+#
+# Tasks:
+# Part 1: Find the number of passports that have all required fields set.
+# Part 2: Find the number of passports where all fields are actually valid.
+#
+
 import re
 
 with open("../inputs/day04.txt") as file:

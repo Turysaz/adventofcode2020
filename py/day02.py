@@ -1,3 +1,13 @@
+
+# Advent of code 2020, day 02
+#
+# Tasks:
+# Part 1: Read all the lines from the file. Each line specifies a range R, a
+#         character C and a password P. P is valid if the number of Cs in it is
+#         within R.
+# Part 2: P is only valid if it contains a C at exactly one of the limits of R.
+#
+
 import re
 
 with open("../inputs/day02.txt") as file:
